@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Guests</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Same sidebar as home.html -->
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Guest Management</h1>
+                <div class="actions">
+                    <button class="btn btn-primary" id="addGuestBtn">Add New Guest</button>
+                    <button class="btn btn-secondary" id="exportGuestsBtn">Export to CSV</button>
+                </div>
+            </header>
+
+            <!-- Guest Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="guestSearch">Search:</label>
+                    <input type="text" id="guestSearch" placeholder="Name, email or phone">
+                </div>
+                <div class="filter-group">
+                    <label for="guestStatus">Status:</label>
+                    <select id="guestStatus">
+                        <option value="all">All Guests</option>
+                        <option value="current">Current Guests</option>
+                        <option value="past">Past Guests</option>
+                        <option value="vip">VIP Guests</option>
+                    </select>
+                </div>
+                <button class="btn btn-secondary" id="applyGuestFilters">Apply</button>
+                <button class="btn btn-outline" id="resetGuestFilters">Reset</button>
+            </section>
+
+            <!-- Guests Table -->
+            <section class="guests-table">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Guest ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>ID Type</th>
+                                <th>ID Number</th>
+                                <th>VIP Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="guestsTableBody">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="guestsPrevPage" disabled>Previous</button>
+                <span id="guestsPageInfo">Page 1 of 5</span>
+                <button id="guestsNextPage">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Guest Modal -->
+    <div class="modal" id="addGuestModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Guest</h2>
+            <form id="addGuestForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guestFirstName">First Name</label>
+                        <input type="text" id="guestFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestLastName">Last Name</label>
+                        <input type="text" id="guestLastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="guestEmail">Email</label>
+                    <input type="email" id="guestEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestPhone">Phone</label>
+                    <input type="tel" id="guestPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestAddress">Address</label>
+                    <textarea id="guestAddress" rows="2" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guestIdType">ID Type</label>
+                        <select id="guestIdType" required>
+                            <option value="passport">Passport</option>
+                            <option value="driver_license">Driver License</option>
+                            <option value="national_id">National ID</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestIdNumber">ID Number</label>
+                        <input type="text" id="guestIdNumber" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="guestVipStatus">VIP Status</label>
+                    <select id="guestVipStatus">
+                        <option value="regular">Regular</option>
+                        <option value="silver">Silver</option>
+                        <option value="gold">Gold</option>
+                        <option value="platinum">Platinum</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Guest</button>
+                    <button type="button" class="btn btn-outline" id="cancelGuest">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Rooms</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Same sidebar as home.html -->
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Room Management</h1>
+                <div class="actions">
+                    <button class="btn btn-primary" id="addRoomBtn">Add New Room</button>
+                </div>
+            </header>
+
+            <!-- Room Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="roomTypeFilter">Room Type:</label>
+                    <select id="roomTypeFilter">
+                        <option value="all">All Types</option>
+                        <option value="single">Single</option>
+                        <option value="double">Double</option>
+                        <option value="suite">Suite</option>
+                        <option value="deluxe">Deluxe</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="roomStatusFilter">Status:</label>
+                    <select id="roomStatusFilter">
+                        <option value="all">All Statuses</option>
+                        <option value="available">Available</option>
+                        <option value="occupied">Occupied</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+                <button class="btn btn-secondary" id="applyFilters">Apply Filters</button>
+                <button class="btn btn-outline" id="resetFilters">Reset</button>
+            </section>
+
+            <!-- Rooms Table -->
+            <section class="rooms-table">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Room No.</th>
+                                <th>Type</th>
+                                <th>Price/Night</th>
+                                <th>Capacity</th>
+                                <th>Status</th>
+                                <th>Amenities</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="roomsTableBody">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="prevPage" disabled>Previous</button>
+                <span id="pageInfo">Page 1 of 5</span>
+                <button id="nextPage">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Room Modal -->
+    <div class="modal" id="addRoomModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Room</h2>
+            <form id="addRoomForm">
+                <div class="form-group">
+                    <label for="roomNumber">Room Number</label>
+                    <input type="text" id="roomNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Room Type</label>
+                    <select id="roomType" required>
+                        <option value="">Select Type</option>
+                        <option value="single">Single</option>
+                        <option value="double">Double</option>
+                        <option value="suite">Suite</option>
+                        <option value="deluxe">Deluxe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomPrice">Price per Night ($)</label>
+                    <input type="number" id="roomPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomCapacity">Capacity</label>
+                    <input type="number" id="roomCapacity" required>
+                </div>
+                <div class="form-group">
+                    <label>Amenities</label>
+                    <div class="amenities-checkboxes">
+                        <label><input type="checkbox" name="amenities" value="wifi"> WiFi</label>
+                        <label><input type="checkbox" name="amenities" value="tv"> TV</label>
+                        <label><input type="checkbox" name="amenities" value="ac"> AC</label>
+                        <label><input type="checkbox" name="amenities" value="minibar"> Mini Bar</label>
+                        <label><input type="checkbox" name="amenities" value="safe"> Safe</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Room</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

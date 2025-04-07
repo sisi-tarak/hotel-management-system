@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Reports</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Same sidebar as home.html -->
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Reports</h1>
+                <div class="actions">
+                    <button class="btn btn-secondary" id="printReportBtn">Print Report</button>
+                    <button class="btn btn-secondary" id="exportReportBtn">Export to PDF</button>
+                </div>
+            </header>
+
+            <!-- Report Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="reportType">Report Type:</label>
+                    <select id="reportType">
+                        <option value="occupancy">Occupancy Report</option>
+                        <option value="revenue">Revenue Report</option>
+                        <option value="guest">Guest Report</option>
+                        <option value="reservation">Reservation Report</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="reportPeriod">Period:</label>
+                    <select id="reportPeriod">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div class="filter-group custom-date-range" id="customDateRange" style="display: none;">
+                    <label for="reportStartDate">From:</label>
+                    <input type="date" id="reportStartDate">
+                    <label for="reportEndDate">To:</label>
+                    <input type="date" id="reportEndDate">
+                </div>
+                <button class="btn btn-primary" id="generateReportBtn">Generate Report</button>
+            </section>
+
+            <!-- Report Display -->
+            <section class="report-display">
+                <div class="report-header">
+                    <h2 id="reportTitle">Occupancy Report</h2>
+                    <p id="reportDateRange">For the month of June 2023</p>
+                </div>
+                
+                <!-- Summary Cards -->
+                <div class="report-summary-cards">
+                    <div class="report-card">
+                        <h3>Occupancy Rate</h3>
+                        <p class="big-number">78%</p>
+                        <p class="compare">↑ 5% from last month</p>
+                    </div>
+                    <div class="report-card">
+                        <h3>Total Rooms Occupied</h3>
+                        <p class="big-number">94</p>
+                        <p class="compare">↑ 12 from last month</p>
+                    </div>
+                    <div class="report-card">
+                        <h3>Average Stay Duration</h3>
+                        <p class="big-number">3.2 nights</p>
+                        <p class="compare">↓ 0.4 from last month</p>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="report-charts">
+                    <div class="chart-container">
+                        <canvas id="reportMainChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="reportSecondaryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Detailed Data -->
+                <div class="report-details">
+                    <h3>Detailed Data</h3>
+                    <div class="table-container">
+                        <table id="reportDetailsTable">
+                            <!-- Filled by JavaScript -->
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

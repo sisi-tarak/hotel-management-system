@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Reservations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Same sidebar as home.html -->
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Reservation Management</h1>
+                <div class="actions">
+                    <button class="btn btn-primary" id="newReservationBtn">New Reservation</button>
+                </div>
+            </header>
+
+            <!-- Reservation Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="reservationStatus">Status:</label>
+                    <select id="reservationStatus">
+                        <option value="all">All Reservations</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="checked-in">Checked-in</option>
+                        <option value="checked-out">Checked-out</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="reservationDateRange">Date Range:</label>
+                    <input type="text" id="reservationDateRange" placeholder="Select date range">
+                </div>
+                <div class="filter-group">
+                    <label for="searchReservation">Search:</label>
+                    <input type="text" id="searchReservation" placeholder="Guest name or ID">
+                </div>
+                <button class="btn btn-secondary" id="applyReservationFilters">Apply</button>
+                <button class="btn btn-outline" id="resetReservationFilters">Reset</button>
+            </section>
+
+            <!-- Reservations Table -->
+            <section class="reservations-table">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reservation ID</th>
+                                <th>Guest Name</th>
+                                <th>Room No.</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Status</th>
+                                <th>Total Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservationsTableBody">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="reservationsPrevPage" disabled>Previous</button>
+                <span id="reservationsPageInfo">Page 1 of 5</span>
+                <button id="reservationsNextPage">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Reservation Modal -->
+    <div class="modal" id="newReservationModal">
+        <div class="modal-content large-modal">
+            <span class="close">&times;</span>
+            <h2>New Reservation</h2>
+            <form id="newReservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservationGuest">Guest</label>
+                        <select id="reservationGuest" required>
+                            <option value="">Select Guest</option>
+                            <!-- Filled by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationRoom">Room</label>
+                        <select id="reservationRoom" required>
+                            <option value="">Select Room</option>
+                            <!-- Filled by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservationCheckIn">Check-in Date</label>
+                        <input type="text" id="reservationCheckIn" class="datepicker" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationCheckOut">Check-out Date</label>
+                        <input type="text" id="reservationCheckOut" class="datepicker" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reservationAdults">Adults</label>
+                    <input type="number" id="reservationAdults" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationChildren">Children</label>
+                    <input type="number" id="reservationChildren" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="reservationSpecialRequests">Special Requests</label>
+                    <textarea id="reservationSpecialRequests" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="reservationPaymentStatus">Payment Status</label>
+                    <select id="reservationPaymentStatus">
+                        <option value="pending">Pending</option>
+                        <option value="partial">Partial</option>
+                        <option value="paid">Paid</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Reservation</button>
+                    <button type="button" class="btn btn-outline" id="cancelReservation">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

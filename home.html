@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Management System - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="images/hotel-logo.png" alt="Hotel Logo" />
+          <h2>Grand Horizon</h2>
+        </div>
+        <nav>
+          <ul>
+            <li class="active">
+              <a href="home.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+              <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+            </li>
+            <li>
+              <a href="reservations.html"
+                ><i class="fas fa-calendar-check"></i> Reservations</a
+              >
+            </li>
+            <li>
+              <a href="guests.html"><i class="fas fa-users"></i> Guests</a>
+            </li>
+            <li>
+              <a href="staff.html"><i class="fas fa-user-tie"></i> Staff</a>
+            </li>
+            <li>
+              <a href="reports.html"
+                ><i class="fas fa-chart-bar"></i> Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <img src="images/user.png" alt="User Avatar" />
+          <div>
+            <h4>Admin User</h4>
+            <a href="#" id="logout">Logout</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Dashboard</h1>
+          <div class="date-time">
+            <span id="currentDate"></span>
+            <span id="currentTime"></span>
+          </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-cards">
+          <div class="card">
+            <div class="card-icon bg-blue">
+              <i class="fas fa-bed"></i>
+            </div>
+            <div class="card-info">
+              <h3>Total Rooms</h3>
+              <p id="totalRooms">120</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon bg-green">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="card-info">
+              <h3>Occupied</h3>
+              <p id="occupiedRooms">84</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon bg-orange">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <div class="card-info">
+              <h3>Today Check-ins</h3>
+              <p id="todayCheckins">12</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon bg-red">
+              <i class="fas fa-user-times"></i>
+            </div>
+            <div class="card-info">
+              <h3>Today Check-outs</h3>
+              <p id="todayCheckouts">8</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Bookings -->
+        <section class="recent-bookings">
+          <h2>Recent Bookings</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Guest Name</th>
+                  <th>Room Type</th>
+                  <th>Check-in</th>
+                  <th>Check-out</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentBookingsTable">
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Occupancy Chart -->
+        <section class="chart-section">
+          <h2>Monthly Occupancy</h2>
+          <div class="chart-container">
+            <canvas id="occupancyChart"></canvas>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Staff</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Same sidebar as home.html -->
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Staff Management</h1>
+                <div class="actions">
+                    <button class="btn btn-primary" id="addStaffBtn">Add New Staff</button>
+                </div>
+            </header>
+
+            <!-- Staff Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="staffSearch">Search:</label>
+                    <input type="text" id="staffSearch" placeholder="Name or position">
+                </div>
+                <div class="filter-group">
+                    <label for="staffDepartment">Department:</label>
+                    <select id="staffDepartment">
+                        <option value="all">All Departments</option>
+                        <option value="front_desk">Front Desk</option>
+                        <option value="housekeeping">Housekeeping</option>
+                        <option value="kitchen">Kitchen</option>
+                        <option value="management">Management</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+                <button class="btn btn-secondary" id="applyStaffFilters">Apply</button>
+                <button class="btn btn-outline" id="resetStaffFilters">Reset</button>
+            </section>
+
+            <!-- Staff Table -->
+            <section class="staff-table">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Staff ID</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Hire Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staffTableBody">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="staffPrevPage" disabled>Previous</button>
+                <span id="staffPageInfo">Page 1 of 5</span>
+                <button id="staffNextPage">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Staff Modal -->
+    <div class="modal" id="addStaffModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Staff Member</h2>
+            <form id="addStaffForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="staffFirstName">First Name</label>
+                        <input type="text" id="staffFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffLastName">Last Name</label>
+                        <input type="text" id="staffLastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="staffEmail">Email</label>
+                    <input type="email" id="staffEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffPhone">Phone</label>
+                    <input type="tel" id="staffPhone" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="staffPosition">Position</label>
+                        <input type="text" id="staffPosition" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffDepartmentSelect">Department</label>
+                        <select id="staffDepartmentSelect" required>
+                            <option value="front_desk">Front Desk</option>
+                            <option value="housekeeping">Housekeeping</option>
+                            <option value="kitchen">Kitchen</option>
+                            <option value="management">Management</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="staffHireDate">Hire Date</label>
+                        <input type="date" id="staffHireDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffSalary">Salary</label>
+                        <input type="number" id="staffSalary" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="staffAddress">Address</label>
+                    <textarea id="staffAddress" rows="2" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Staff</button>
+                    <button type="button" class="btn btn-outline" id="cancelStaff">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
