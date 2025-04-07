@@ -123,6 +123,8 @@ function initLoginPage() {
       // Simple validation
       if (username === "admin" && password === "admin123") {
         window.location.href = "home.html";
+      } else if (username === "user" && password === "user123") {
+        window.location.href = "landing.html";
       } else {
         alert("Invalid username or password");
       }
